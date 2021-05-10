@@ -1,24 +1,61 @@
-# README
+# テーブル設計
+# アプリケーション名
+- Usersvoice
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション概要
+- 
 
-Things you may want to cover:
+# URL
+- デプロイ完了次第記述予定。
 
-* Ruby version
+# 利用方法
+- 
 
-* System dependencies
+# 目指した課題解決
+- 
 
-* Configuration
+# バージョン
+- Ruby : 2.6.5
+- Rails : 6.0.0
 
-* Database creation
 
-* Database initialization
+## usersテーブル
 
-* How to run the test suite
+| Column                 | Type       | Options                  |
+| ---------------------- | ---------- | ------------------------ |
+| email                  | string     | null: false,unique: true |
+| encrypted_password     | string     | null: false              |
+| nickname               | string     | null: false              |
+| age                    | integer    | null: false              |  ##ActiveHash使う
+| image_name             | string     |                          |  
+| profile                | text       |                          |  
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+- has_many  :posts
+- has_many  :likes
 
-* Deployment instructions
 
-* ...
+## postsテーブル
+
+| Column                     | Type       | Options                       |
+| -------------------------- | ---------- | ----------------------------- |
+| user                       | references | null: false,foreign_key: true |
+| item                       | text       | null: false                   |
+| content                    | text       | null: false                   |
+
+### Association
+- belongs_to :user
+- has_many   :likes
+
+
+## likesテーブル
+
+| Column                     | Type       | Options                       |
+| -------------------------- | ---------- | ----------------------------- |
+| user                       | references | null: false,foreign_key: true |
+| item                       | references | null: false,foreign_key: true |
+| content                    | text       | null: false                   |
+
+### Association
+- belongs_to :user
+- belongs_to :post
