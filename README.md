@@ -6,7 +6,7 @@
 - 
 
 # URL
-- デプロイ完了次第記述予定。
+- https://uservoice.herokuapp.com/
 
 # 利用方法
 - 
