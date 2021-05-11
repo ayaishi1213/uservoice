@@ -10,7 +10,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    binding.pry
     @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "投稿を作成しました"
@@ -18,6 +17,10 @@ class PostsController < ApplicationController
     else
       render("posts/new")
     end
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   private
