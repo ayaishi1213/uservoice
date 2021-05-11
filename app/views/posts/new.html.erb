@@ -1,7 +1,7 @@
 <div class="main posts-new">
   <div class="container">
   <h2 class="form-heading">投稿する</h2>
-  <%= form_with model: @post, url: posts_path, local: true do |f| %>
+  <%= form_with model: @post, url: posts_path, method: :post, local: true do |f| %>
   <%# <% "エラーメッセージ" %> 
 
 <%# 商品画像%>
@@ -25,7 +25,7 @@
     アイテム名(タイトル)
     <span class="indispensable">必須</span>
   </div>
-  <%= f.text_area :description, class:"posts-text", id:"post-name", placeholder:"アイテム名（必須 30文字まで)", maxlength:"30"%>
+  <%= f.text_area :item, class:"posts-text", id:"post-name", placeholder:"アイテム名（必須 30文字まで)", maxlength:"30"%>
   </div>
 </div>
 <%# /アイテム名 %>
