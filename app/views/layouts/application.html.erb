@@ -12,43 +12,17 @@
   <body>
     <header>
       <div class="header-logo">
-        <% if @current_user %>
-          <%= link_to("UserVice", "/posts/index") %>
-        <% else %>
-          <%= link_to("UserVise", "/") %>
+        <%= link_to("UserViceとは", "/") %>
       </div>
       <ul class="header-menus">
-        <% if @current_user %>
         <li>
-          <%= link_to (@current_user.nickname, "#", class: "user-nickname") %>
+          <%= link_to("UserViceとは", "/about") %>
         </li>
         <li>
           <%= link_to("投稿一覧", "/posts/index") %>
         </li>
-        <li>
-          <%= link_to("新規投稿", "/posts/new") %>
-        </li>
-        <li>
-          <%= link_to("ログアウト", destroy_user_session_path, method: :delete, class: "logout") %>
-        </li>
-        <% else %>
-        <li>
-          <%= link_to("UserVoiceとは", "/about") %>
-        </li>
-        <li>
-          <%= link_to("新規登録", new_user_registration_path, class: "signup") %>
-        </li>
-        <li>
-          <%= link_to("ログイン", new_user_session_path, class: "login") %>
-        </li>
       </ul>
     </header>
-
-    <% if flash[:notice] %>
-      <div class="flash">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
 
     <%= yield %>
   </body>
