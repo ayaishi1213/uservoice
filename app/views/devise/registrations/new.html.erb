@@ -1,29 +1,23 @@
-<h2>Sign up</h2>
+<div class="main users-new">
+  <div class="container">
+    <div class="form-heading">新規ユーザー登録</div>
+    <div class="form users-form">
+      <div class="form-body">
+        <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: ture do |f| %>
+        <p>ニックネーム</p>
+        <input name="name" value="<%= @user.name %>">
+        <input>
+        <p>メールアドレス</p>
+        <input name="email" value="<%= @user.email %>">
+        <p>パスワード</p>
+        <input type="password" name="password" value="<%= @user.password %>">
+        <p>パスワード確認</p>
+        <input type="password_confirmation" name="password_confirmation" value="<%= @user.password_confirmation %>">
+        <input type="submit" value="新規登録">
+      </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
