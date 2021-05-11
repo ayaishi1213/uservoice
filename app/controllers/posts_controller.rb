@@ -10,13 +10,29 @@ class PostsController < ApplicationController
   end
 
   def create
-    binding.pry
     @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "投稿を作成しました"
-      redirect_to("/posts/index")
+      redirect_to("/posts")
     else
       render("posts/new")
+    end
+  end
+
+  def show
+    @post = Post.find(params[:id])
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to("/posts")
+    else
+      render("/posts/edit")
     end
   end
 
