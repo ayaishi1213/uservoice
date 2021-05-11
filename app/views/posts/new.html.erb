@@ -1,1 +1,30 @@
-<h2>新規投稿画面</h2>
+<div class="main posts-new">
+  <div class="container">
+  <h2 class="form-heading">投稿する</h2>
+  <%= form_with model: @post, url: @posts_path, local: true do |f| %>
+  </div>
+</div>
+
+<%# <% "エラーメッセージ" %> 
+
+<%# 商品画像%>
+<div class= "image-uplpad">
+  <div class="weight-bold-text">
+  商品画像
+  <span class="indispensable">必須</span>
+  <div id="image-list"></div>
+  </div>
+  <div class="click-upload">
+   <p>
+   クリックしてファイルをアップロード
+   </p>
+   <%= f.fild_fild :image, id:"item-image" %>
+</div>
+
+<% end %>
+
+
+
+
+
+
