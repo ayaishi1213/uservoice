@@ -5,16 +5,16 @@
       <div class="form-body">
         <%= devise_error_messages! %>
 
-      <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: ture do |f| %>
+      <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
         <p>ニックネーム</p>
-        <input name="name" value="<%= @user.name %>">
+        <%# <input name="name" value="<%= @user.name %>"> %>
         <input>
         <p>メールアドレス</p>
-        <input name="email" value="<%= @user.email %>">
+        <%# <input name="email" value="<%= @user.email %>"> %>
         <p>パスワード</p>
-        <input type="password" name="password" value="<%= @user.password %>">
+        <%# <input type="password" name="password" value="<%= @user.password %>"> %>
         <p>パスワード確認</p>
-        <input type="password_confirmation" name="password_confirmation" value="<%= @user.password_confirmation %>">
+        <%# <input type="password_confirmation" name="password_confirmation" value="<%= @user.password_confirmation %>"> %>
         <input type="submit" value="新規登録">
       </div>
       <% end %>
