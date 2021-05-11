@@ -1,1 +1,57 @@
-<h2>投稿編集画面</h2>
+<div class="main posts-new">
+  <div class="container">
+  <h2 class="form-heading">編集する</h2>
+  <%= form_with model: @post, local: true do |f| %>
+  <%# <% "エラーメッセージ" %> 
+
+<%# 商品画像%>
+<div class= "image-uplpad">
+  <div class="weight-bold-text">
+  商品画像
+  <span class="indispensable">必須</span>
+  <div id="image-list"></div>
+  </div>
+  <div class="click-upload">
+   <p>
+   クリックしてファイルをアップロード
+   </p>
+   <%= f.file_field :image, id:"item-image" %>
+</div>
+<%# /商品画像 %>
+
+<%# アイテム名 %>
+<div class="new-posts">
+  <div class="weight-bold-text">
+    アイテム名(タイトル)
+    <span class="indispensable">必須</span>
+  </div>
+  <%= f.text_area :item, class:"posts-text", id:"post-name", placeholder:"アイテム名（必須 30文字まで)", maxlength:"30"%>
+  </div>
+</div>
+<%# /アイテム名 %>
+
+<%# アイテムの説明%> 
+<div class="new-posts">
+  <div class="weight-bold-text">
+    アイテム名(タイトル)
+    <span class="indispensable">必須</span>
+  </div>
+  <%= f.text_area :content, class:"posts-content", id:"post-info", placeholder:"アイテム説明（必須 1000文字まで)", rows:"7" ,maxlength:"1000"%>
+  </div>
+</div>
+
+<%#アイテムの説明%>
+
+ <%# 変更ボタン%>
+  <div class="edit-btn-contents">
+    <%= f.submit "変更する" ,class:"edit-btn" %>
+  </div>
+  <%# /変更ボタン%>
+ <% end %>
+</div>
+</div>
+
+
+
+
+    
