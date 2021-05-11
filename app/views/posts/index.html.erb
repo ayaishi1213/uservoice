@@ -1,27 +1,51 @@
-<header>
-  <div class="header-logo">
-    <a href="/">UserVice</a>
-  </div>
-  <ul class="header-menus">
-    <li>
-      <a href="/about">UserViceとは</a>
-    </li>
-  </ul>
-</header>
-
-<%
-posts=[
-  "ノベルティの口コミ募集中！",
-  "「こんなのが欲しいというアイデアも大歓迎！」"
-  ]
-%>
-
+    <header>
+      <div class="header-logo">
+        <%= link_to("UserViceとは", "/") %>
+      </div>
+      <ul class="header-menus">
+       <% if user_signed_in? %>
+        <li>
+          <%= link_to current_user.nickname, "#", class: "user-nickname" %>
+        </li>
+        <li>
+          <%= link_to "投稿一覧", posts_path %>
+        </li>
+        <li>
+          <%= link_to "新規投稿", new_post_path %>
+        </li>
+        <li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %>
+        </li>
+       <% else %>
+        <li>
+          <%= link_to("UserViceとは", "/about") %>
+        </li>
+        <li>
+          <%= link_to "新規登録", new_user_registration_path, class: "sign-up" %>
+        </li>
+        <li>
+          <%= link_to "ログイン", new_user_session_path, class: "login" %>
+        </li>
+       <% end %>
+      </ul>
+    </header>
 
 <div class="main posts-index">
   <div class="container">
-    <% posts.each do |post| %>
+    <% @posts.each do |post| %>
       <div class="posts-index-item">
-       <%= post %>
+        <div class="post-left">
+          <%= image_tag post.image, class: "post-img" %>
+        </div>
+        <div class="post-right">
+          <div class="post-user-name">
+            <%= link_to(post.user.nickname, "/users/#{post.user.id}") %>
+          </div>
+          <h3 class='post-name'>
+            <%= link_to(post.item, "/posts/#{post.id}") %>
+          </h3>
+          <%= link_to(post.content, "/posts/#{post.id}") %>
+        </div>
       </div>
     <% end %>
   </div>
