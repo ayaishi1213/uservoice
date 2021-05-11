@@ -10,10 +10,11 @@ class PostsController < ApplicationController
   end
 
   def create
+    binding.pry
     @post = Post.new(post_params)
     if @post.save
-      flash[:notice] = "投稿が完了しました"
-      render_to("/posts/index")
+      flash[:notice] = "投稿を作成しました"
+      redirect_to("/posts/index")
     else
       render("posts/new")
     end
