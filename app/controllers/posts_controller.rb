@@ -10,11 +10,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Pots.new(post_params)
+    @post = Post.new(post_params)
     if @post.save
-      render :show
+      flash[:notice] = "投稿が完了しました"
+      render_to("/posts/index")
     else
-      render :index
+      render("posts/new")
     end
   end
 
