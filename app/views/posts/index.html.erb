@@ -30,19 +30,22 @@
       </ul>
     </header>
 
-<%
-posts=[
-  "ノベルティの口コミ募集中！",
-  "「こんなのが欲しいというアイデアも大歓迎！」"
-  ]
-%>
-
-
 <div class="main posts-index">
   <div class="container">
-    <% posts.each do |post| %>
+    <% @posts.each do |post| %>
       <div class="posts-index-item">
-       <%= post %>
+        <div class="post-left">
+          <%= image_tag post.image, class: "post-img" %>
+        </div>
+        <div class="post-right">
+          <div class="post-user-name">
+            <%= link_to(post.user.nickname, "/users/#{post.user.id}") %>
+          </div>
+          <h3 class='post-name'>
+            <%= link_to(post.item, "/posts/#{post.id}") %>
+          </h3>
+          <%= link_to(post.content, "/posts/#{post.id}") %>
+        </div>
       </div>
     <% end %>
   </div>
