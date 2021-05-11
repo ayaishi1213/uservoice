@@ -1,19 +1,56 @@
-<div class="main users-new">
-  <div class="container">
-    <h2>会員情報入力</h2>
-    <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
+<%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
+  <div class="main users-new">
+    <div class="container">
+      <div class="form-heading">会員登録</div>
+      <div class="form-body">
 
-        <p>ニックネーム</p>
-        <%# <input name="name" value="<%= @user.name %>"> %>
-        <input>
-        <p>メールアドレス</p>
-        <%# <input name="email" value="<%= @user.email %>"> %>
-        <p>パスワード</p>
-        <%# <input type="password" name="password" value="<%= @user.password %>"> %>
-        <p>パスワード確認</p>
-        <%# <input type="password_confirmation" name="password_confirmation" value="<%= @user.password_confirmation %>"> %>
-        <input type="submit" value="新規登録">
+      <%# <%= render 'shared/error_messages', model: f.object %> 
+
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <p>ニックネーム</p>
+          <span class="indispensable">必須</span>
+        </div>
+          <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) User花子", maxlength:"40" %>
       </div>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <p>年齢</p>
+          <span class="indispensable">必須</span>
+        </div>
+          <%= f.text_area :age, class:"input-default", id:"age" %>
+      </div>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <p>メールアドレス</p>
+          <span class="indispensable">必須</span>
+        </div>
+          <%= f.text_area :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true  %>
+      </div>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <p>パスワード</p>
+          <span class="indispensable">必須</span>
+        </div>
+          <%= f.text_area :password, class:"input-default", id:"password", placeholder:"6文字以上の半角英数字" %>
+      </div>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <p>パスワード(確認)</p>
+          <span class="indispensable">必須</span>
+        </div>
+          <%= f.text_area :password_confirmation, class:"input-default", id:"password_confirmation", placeholder:"同じパスワードを入力して下さい" %>
+      </div>
+
+      <div class='register-btn'>
+         <%= f.submit "会員登録" ,class:"register-red-btn" %>
+      </div>
+
       <% end %>
     </div>
   </div>
