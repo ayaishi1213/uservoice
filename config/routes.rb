@@ -3,9 +3,6 @@ Rails.application.routes.draw do
   get "/" => "home#top"
   get "about" => "home#about"
 
-  get "/users/:id" => "users#show"
-  get "/users/:id/edit" => "users#edit"
-  get "/users/:id/update" => "users#update"
-  
+  resources :users, only: [:show, :edit, :update]
   resources :posts
 end
