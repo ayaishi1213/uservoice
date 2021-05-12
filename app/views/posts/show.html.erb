@@ -14,7 +14,18 @@
     <div class="post-time">
       <%= @post.created_at %>
     </div>
-        <% if user_signed_in? %>
+
+    <!--いいね機能 -->
+    <% if Like.find_by(user_id: current_user.id, post_id: @post.id) %>
+      <%= link_to "いいね！済み", post_like_path(@post.id), method: :delete %>
+      <span class="fa fa-heart like-btn-unlike"></span>
+    <% else %>
+      <%= link_to "いいね！", post_likes_path(@post.id), method: :post %>
+      <span class="fa fa-heart like-btn"></span>
+    <% end %>
+    <%= @likes_count %> 
+    <!--/いいね機能 -->
+    <% if user_signed_in? %>
     <% if current_user == @post.user %>
       <%= link_to "編集", edit_post_path(@post.id) %>
       <%= link_to "削除", post_path(@post.id), method: :delete %>
