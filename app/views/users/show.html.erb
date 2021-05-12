@@ -1,1 +1,23 @@
-<h2>ユーザー詳細</h2>
+<div class="main user-show">
+  <div class="container">
+    <div class="user">
+
+    <% if @user.image_name == nil %>
+      <%= image_tag '/default_user.jpg' %>
+    <% else %>
+      <img src="<%= "/user_images/#{@user.image_name}" %>">
+    <% end %>
+
+    <h2><%= @user.nickname %></h2>
+
+    <% if @user.profile == nil %>
+      <p>プロフィールを登録してみましょう！</p>
+    <% else%>
+      <p><%= @user.profile %></p>
+    <% end %>
+
+    <%= link_to "編集", edit_user_path(current_user) %>
+
+    </div>
+  </div>
+</div>

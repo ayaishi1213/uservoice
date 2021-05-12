@@ -8,6 +8,7 @@ class User < ApplicationRecord
     validates :nickname
     validates :age
   end
-
+  
   has_many :posts
+  has_one_attached :image
 end
