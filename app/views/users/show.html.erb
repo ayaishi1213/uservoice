@@ -7,8 +7,12 @@
       <%= image_tag @user.image_name, class: "user-img" %> 
     <% end %>
     <h2><%= @user.nickname %></h2>
-    <p><%= @user.profile %>
-    <%= link_to "編集", user_path(current_user) %>
+    <% if @user.profile == nil %>
+      <p>プロフィールを登録してみましょう！</p>
+    <% else%>
+      <p><%= @user.profile %></p>
+    <% end %>
+    <%= link_to "編集", edit_user_path(current_user) %>
     </div>
   </div>
 </div>
