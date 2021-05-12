@@ -3,24 +3,35 @@
     <div class="posts-show-item">
       <div class="posts-img">
          <%= image_tag @post.image, class: "post-img" %>
-         <%# <%= link_to(@post.user.nickname, "/users/#{@user.id}") %>
+         <%= link_to @post.user.nickname, user_path(current_user) %>
       </div>
-    </div>
       <div class="posts-item">
-        <% @post.item %>
+        <%= @post.item %>
       </div>
       <div class="posts-content">
-      <% @post.content %>
+        <%= @post.content %>
       </div>
     <div class="post-time">
       <%= @post.created_at %>
     </div>
+
+    <!--いいね機能 -->
+    <% if Like.find_by(user_id: current_user.id, post_id: @post.id) %>
+      <%= link_to "いいね！済み", post_like_path(@post.id), method: :delete %>
+      <span class="fa fa-heart like-btn-unlike"></span>
+    <% else %>
+      <%= link_to "いいね！", post_likes_path(@post.id), method: :post %>
+      <span class="fa fa-heart like-btn"></span>
+    <% end %>
+    <%= @likes_count %> 
+    <!--/いいね機能 -->
     <% if user_signed_in? %>
     <% if current_user == @post.user %>
       <%= link_to "編集", edit_post_path(@post.id) %>
       <%= link_to "削除", post_path(@post.id), method: :delete %>
     <% end %>
     <% end %>
+    </div>
   </div>
 </div>
 
