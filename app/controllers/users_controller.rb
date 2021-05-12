@@ -23,6 +23,9 @@ class UsersController < ApplicationController
     else
       render("/users/edit")
     end
+
+    def likes
+    end
   end
 
   private
