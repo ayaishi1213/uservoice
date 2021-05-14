@@ -5,7 +5,7 @@
       <ul class="header-menus">
        <% if user_signed_in? %>
         <li>
-          <%= link_to current_user.nickname, "#", class: "user-nickname" %>
+          <%= link_to current_user.nickname, user_path(current_user.id), class: "user-nickname" %>
         </li>
         <li>
           <%= link_to "投稿一覧", posts_path %>
@@ -34,18 +34,16 @@
   <div class="container">
     <% @posts.each do |post| %>
       <div class="posts-index-item">
-        <div class="post-left">
-          <%= image_tag post.image, class: "post-img" %>
-        </div>
-        <div class="post-right">
           <div class="post-user-name">
-            <%= link_to(post.user.nickname, "/users/#{post.user.id}") %>
+            <<%= link_to(post.user.nickname, "/users/#{post.user.id}") %>さんの投稿>
           </div>
           <h3 class='post-name'>
             <%= link_to(post.item, "/posts/#{post.id}") %>
           </h3>
-          <%= link_to(post.content, "/posts/#{post.id}") %>
-        </div>
+            <%= image_tag post.image, class: "post-img" %>
+          <p>
+            <%= link_to(post.content, "/posts/#{post.id}") %>
+          </p>
       </div>
     <% end %>
   </div>

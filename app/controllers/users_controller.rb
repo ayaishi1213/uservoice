@@ -2,6 +2,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # unless current_user.posts == nil
+    #   @post = Post.find(params[:id])
+    # else
+    #   render("/user/#{@user.id}")
+    # end
   end
 
   def edit

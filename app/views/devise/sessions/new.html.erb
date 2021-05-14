@@ -1,4 +1,5 @@
 <%= form_with model:@user, url: user_session_path, class: 'registration-main', local: true do |f| %>
+  <div class="main users-session">
   <div class="container">
     <div class="form-heading">ログイン</div>
     <div class="form users-form">
@@ -12,7 +13,6 @@
       <div class="form-group">
         <div class='form-text-wrap'>
           <p>メールアドレス</p>
-          <span class="indispensable">必須</span>
         </div>
           <%= f.text_area :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true  %>
       </div>
@@ -20,7 +20,6 @@
       <div class="form-group">
         <div class='form-text-wrap'>
           <p>パスワード</p>
-          <span class="indispensable">必須</span>
         </div>
           <%= f.text_area :password, class:"input-default", id:"password", placeholder:"6文字以上の半角英数字" %>
       </div>
@@ -28,7 +27,6 @@
       <div class="form-group">
         <div class='form-text-wrap'>
           <p>パスワード(確認)</p>
-          <span class="indispensable">必須</span>
         </div>
           <%= f.text_area :password_confirmation, class:"input-default", id:"password_confirmation", placeholder:"同じパスワードを入力して下さい" %>
       </div>
@@ -36,7 +34,6 @@
       <div class='login-btn'>
         <%= f.submit "ログイン" ,class:"login-red-btn" %>
       </div>
-
     </div>
   </div>
 </div>
