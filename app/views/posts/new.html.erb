@@ -2,10 +2,13 @@
 <div class="main posts-new">
   <div class="container">
   <h2 class="form-heading">投稿する</h2>
+    <div class="form posts-form">
+    <div class="form-body">
   <%# <% "エラーメッセージ" %> 
 
 <%# 商品画像%>
-<div class= "image-uplpad">
+<div class="form-group">
+  <div class= "image-uplpad">
   <div class="weight-bold-text">
   商品画像
   <div id="image-list"></div>
@@ -36,17 +39,19 @@
   <%= f.text_area :content, class:"posts-content", id:"post-info", placeholder:"アイテム説明（必須 1000文字まで)", rows:"7" ,maxlength:"1000"%>
   </div>
 </div>
-
 <%#アイテムの説明%>
 
- <%# 投稿ボタン%>
+<%# 投稿ボタン%>
  <div class="post-btn-contents">
    <%= f.submit "投稿する", class:"post-btn" %>
  </div>
-  <%# /投稿ボタン%>
-</div>
+<%# /投稿ボタン%>
+ </div>
+ </div>
+ </div>
 </div>
 <% end %>
+
 
 
 
