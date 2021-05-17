@@ -11,13 +11,14 @@
   <div class= "image-uplpad">
   <div class="weight-bold-text">
   商品画像
-  <div id="image-list"></div>
   </div>
   <div class="click-upload">
    <p>
    クリックしてファイルをアップロード
    </p>
    <%= f.file_field :image, id:"item-image" %>
+  <%# プレビュー画像を表示させる部分%>
+   <div id="image-list"></div>
 </div>
 <%# /商品画像 %>
 
