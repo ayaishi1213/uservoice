@@ -1,0 +1,3 @@
+<%# コメントを全件表示させて、コメント入力後のコメント入力蘭を空にする %>
+$("#comments_area").html("<%= j(render 'index', { comments: @comment.post.comments }) %>")
+$("textarea").val('')
