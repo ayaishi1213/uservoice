@@ -1,3 +1,24 @@
-// Place all the styles related to the comments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.comment-card{
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+  background-color: #eed6da;
+  margin-top: 1.25rem;
+}
+.comment-card textarea{
+  display: block;
+  width: 100%;
+  min-height: 140px;
+  font-size: 12px;
+  padding: .375rem .75rem;
+  line-height: 1.5;
+  border: 1px solid rgb(216, 218, 223);
+  border-radius: .50rem;
+  resize: none;
+}
+
+.comment-card textarea::-webkit-input-placeholder {
+  font-size: 15px;
+  opacity: 0.5;
+}
+
