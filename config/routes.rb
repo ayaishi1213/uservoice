@@ -5,9 +5,10 @@ Rails.application.routes.draw do
 
   get "users/:id/likes" => "users#likes"
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] 
   resources :posts do
     resources :likes, only: [:create, :destroy]
+    resources :comments
   end
 end
-                                1
+                                
