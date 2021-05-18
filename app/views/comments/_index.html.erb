@@ -1,6 +1,6 @@
-<% unless comments.present? %>
-  コメントはまだありません。
-<% end %>
+<%# <% unless comments.present? %>
+  <%# コメントはまだありません。 %>
+<%# <% end %> 
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
    <div class="card one-comment">
