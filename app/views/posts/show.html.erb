@@ -34,33 +34,23 @@
     <% end %>
     <% end %>
 
-    <!--コメント機能 -->
-    <div class="comments-show">
-      <h4>コメント</h4>
-      <div id="comments_area">
-      <% comments.each do |comment| %>
-        <% unless comment.id.nil? %>
-          <p><%= link_to "#{comment.user.nickname}さん", user_path(comment.user.id) %></p>
-          <p>コメント：<%= comment.comment_content %></p>
-          <% if comment.user == current_user %>
-            <p><%= link_to 'コメントを削除する', post_comment_path(comment.post_id, comment.id), method: :delete, remote: true %></p>
-          <% end %>
-        <% end %>
-      <% end %>
-
-      <% if user_signed_in? %>
-      <%= form_with(model: [post, comment] ) do |form| %>
-         <div>
-         <%= form.text_area :comment_content %>
-         </div>
-         <div class="actions">
-         <%= form.submit "コメントをする" %>
-         </div>
-      <% end %>
-      <% end %>
-      </div>
+  <!--コメント機能 -->
+  <div class = "comment-card">
+    <div class = "comment-title">
+    <h4>コメント</h4>
     </div>
-    <!--/コメント機能 -->
+    <div id="comments_area">
+      <!-- 投稿されたコメント一覧を詳細ページに表示する -->
+      <%= render partial: 'comments/index', locals: { comments: @comments } %>
+    </div>
+    <div class="comments_form_area">
+      <% if user_signed_in? %>
+        <!-- コメント入力欄を詳細ページに表示する -->
+        <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+      <% end %>
+    </div>
+  </div>
+  <!--/コメント機能 -->
     </div>
   </div>
 </div>
