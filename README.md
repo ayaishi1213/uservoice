@@ -1,4 +1,3 @@
-# テーブル設計
 # アプリケーション名
 - Usersvoice
 
@@ -11,8 +10,8 @@
 # 目指した課題解決
 - ノベルティは、エンドユーザーの反応が分かりづらいことが多く、どのような物が求められ、
   販促効果があるのかを把握しづらいとう課題がある。
-　その課題を解決する為に、もらって嬉しかったノベルティを投稿してもらい、
-　そこでのコメントや「いいね！」の数から、人気のあるアイテムを検証したい。
+  その課題を解決する為に、もらって嬉しかったノベルティを投稿してもらい、
+  そこでのコメントや「いいね！」の数から、人気のあるアイテムを検証したい。
 
 # バージョン
 - Ruby : 2.6.5
@@ -55,6 +54,19 @@
 | user                       | references | null: false,foreign_key: true |
 | item                       | references | null: false,foreign_key: true |
 | content                    | text       | null: false                   |
+
+### Association
+- belongs_to :user
+- belongs_to :post
+
+
+## commentsテーブル
+
+| Column                     | Type       | Options                       |
+| -------------------------- | ---------- | ----------------------------- |
+| user                       | references | null: false,foreign_key: true |
+| post                       | references | null: false,foreign_key: true |
+| comment_content            | text       | null: false                   |
 
 ### Association
 - belongs_to :user

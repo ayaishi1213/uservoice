@@ -33,6 +33,24 @@
       <%= link_to "削除", post_path(@post.id), method: :delete %>
     <% end %>
     <% end %>
+
+  <!--コメント機能 -->
+  <div class = "comment-card">
+    <div class = "comment-title">
+    <h5>コメント</h5>
+    </div>
+    <div id="comments_area">
+      <!-- 投稿されたコメント一覧を詳細ページに表示する -->
+      <%= render partial: 'comments/index', locals: { comments: @comments } %>
+    </div>
+    <div class="comments_form_area">
+      <% if user_signed_in? %>
+        <!-- コメント入力欄を詳細ページに表示する -->
+        <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+      <% end %>
+    </div>
+  </div>
+  <!--/コメント機能 -->
     </div>
   </div>
 </div>
