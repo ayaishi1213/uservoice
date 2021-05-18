@@ -13,4 +13,5 @@ class User < ApplicationRecord
   has_one_attached :image
   has_many :likes, dependent: :destroy
   has_many :like_posts, through: :likes, source: :post
+  has_many :comments, dependent: :destroy
 end
