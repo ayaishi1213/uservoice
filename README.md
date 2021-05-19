@@ -1,22 +1,31 @@
 # アプリケーション名
-- Usersvoice
+- Uservoice
 
 # アプリケーション概要
-- もらって嬉しかったノベルティを投稿できるアプリケーション
+- もらって嬉しかったノベルティを投稿し、いいね・コメント機能で
+  他のユーザーとコミュニケーションを取ることができる。
 
 # URL
 - https://uservoice.herokuapp.com/
 
-# 目指した課題解決
-- ノベルティは、エンドユーザーの反応が分かりづらいことが多く、どのような物が求められ、
-  販促効果があるのかを把握しづらいとう課題がある。
+# テスト用アカウント
+- email: test1111@test.com
+- password: aaaaaa1
+
+# 解決したい課題
+- ノベルティは、エンドユーザーの反応が分かりづらく、どのような物が求められ、
+  販促効果を把握しづらいとう課題があった。
   その課題を解決する為に、もらって嬉しかったノベルティを投稿してもらい、
-  そこでのコメントや「いいね！」の数から、人気のあるアイテムを検証したい。
+  そこでのコメントや「いいね！」の数から、消費者に支持れるアイテムを検証し、
+  消費者に喜ばれ、販促効果の高い商品を作りたい。
+
+# 実装予定の機能
+- ユーザー詳細ページ(ユーザーの投稿記事といいねした記事が一覧で見ることができる)
 
 # バージョン
 - Ruby : 2.6.5
 - Rails : 6.0.0
-
+- mysql2 :0.4.4
 
 ## usersテーブル
 
@@ -25,7 +34,7 @@
 | email                  | string     | null: false,unique: true |
 | encrypted_password     | string     | null: false              |
 | nickname               | string     | null: false              |
-| age                    | integer    | null: false              |  ##ActiveHash使う
+| age                    | integer    | null: false              |  
 | image_name             | string     |                          |  
 | profile                | text       |                          |  
 
