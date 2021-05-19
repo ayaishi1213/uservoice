@@ -13,7 +13,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      flash[:notice] = "投稿を作成しました"
       redirect_to("/posts")
     else
       render("posts/new")
