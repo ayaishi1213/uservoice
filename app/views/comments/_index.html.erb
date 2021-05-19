@@ -1,17 +1,15 @@
-<%# <% unless comments.present? %>
-  <%# コメントはまだありません。 %>
-<%# <% end %> 
+<% unless comments.present? %>
+  コメントはまだありません。
+<% end %> 
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
    <div class="card one-comment">
      <div class="card-body comment-space">
-    <p class>
-    <%= "#{comment.user.nickname}さん" %>📝
-    </p>    
-    <p><%= comment.comment_content %></p>
+    <%= "#{comment.user.nickname}さん" %> 
+    <%= comment.comment_content %>
     <% if comment.user == current_user %>
-      <p><%= link_to '削除', post_comment_path(comment.post_id, comment.id), 
-      method: :delete, remote: true %></p>   
+      <%= link_to '削除', post_comment_path(comment.post_id, comment.id), 
+      method: :delete, remote: true, class:"delete-btn" %>
       <%# コントローラーでjsファイルを探す設定 %>
     <% end %>
       </div>
