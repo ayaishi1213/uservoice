@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_params, only: [:show, :edit, :update, :destroy]
 
   def index
     @posts = Post.order("created_at DESC")
@@ -20,18 +21,15 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     @likes_count = Like.where(post_id: @post.id).count
     @comment = Comment.new
     @comments = @post.comments
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to("/posts")
     else
@@ -40,7 +38,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     redirect_to("/posts")
   end
@@ -49,5 +46,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:item, :content, :image).merge(user_id: current_user.id)
+  end
+
+  def set_params
+    @post = Post.find(params[:id])
   end
 end
