@@ -16,7 +16,7 @@
       <p><%= @user.profile %></p>
     <% end %>
 
-    <%= link_to "編集", edit_user_path(current_user) %>
+    <%= link_to "編集", edit_user_path(@user.id) %>
 
     <ul class="user-tabs">
       <li class="active"><%= link_to("投稿", "/users/#{@user.id}") %></li>
