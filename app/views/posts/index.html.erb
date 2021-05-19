@@ -40,8 +40,11 @@
           <h3 class='post-name'>
             <%= link_to(post.item, "/posts/#{post.id}") %>
           </h3>
+          <%= link_to post_path(post.id) do %>
             <%= image_tag post.image, class: "post-img" %>
+            <% link_to(post.image, "/posts/#{post.id}") %>
           <p>
+          <% end %>
             <%= link_to(post.content, "/posts/#{post.id}") %>
           </p>
       </div>
