@@ -1,16 +1,15 @@
-<%= form_with model: @user, url: user_path(current_user), class: 'edit-main', local: true do |f| %>
+<%= form_with model: @user, url: user_path(@user.id), class: 'edit-main', local: true do |f| %>
   <div class="main users-edit">
-    <div class="container">
-      <div class="form-heading">アカウント編集</div>
-      <div class="form-users-form">
-        <div class="form-boby">
+  <div class="container">
+    <div class="form-heading">アカウント編集</div>
+    <div class="form-users-form">
+      <div class="form-boby">
       <%# <%= render 'shared/error_messages', model: f.object %> 
 
 
       <div class="form-group">
         <div class='form-text-wrap'>
           <p>ニックネーム</p>
-          <span class="indispensable">必須</span>
         </div>
           <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) User花子", maxlength:"40" %>
       </div>
@@ -26,7 +25,6 @@
       <div class="form-group">
         <div class='form-text-wrap'>
           <p>年齢</p>
-          <span class="indispensable">必須</span>
         </div>
           <%= f.text_area :age, class:"input-default", id:"age" %>
       </div>
@@ -34,7 +32,6 @@
       <div class="form-group">
         <div class='form-text-wrap'>
           <p>メールアドレス</p>
-          <span class="indispensable">必須</span>
         </div>
           <%= f.text_area :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true  %>
       </div>
@@ -47,9 +44,10 @@
       </div>
 
       <div class='edit-btn'>
-         <%= f.submit "保存" ,class:"edit-btn" %>
+         <%= f.submit "保存" ,class:"edit-pink-btn" %>
       </div>
-    </div>
+
+      </div>
     </div>
   </div>
 </div>
