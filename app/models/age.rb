@@ -11,4 +11,7 @@ class Age < ActiveHash::Base
     {id: 9, name: '60代'}
     {id: 10, name: '70代以上'}
   ]
+  
+  include ActiveHash::Associations
+  has_many :users
 end
