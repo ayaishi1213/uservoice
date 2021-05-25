@@ -10,7 +10,7 @@ class User < ApplicationRecord
   
   with_options presence: true do
     validates :nickname
-    validates :age
+    validates :age_id, numericality:  { other_than: 1 }
   end
   
   has_many :posts
