@@ -19,7 +19,7 @@
         <div class='form-text-wrap'>
           <p>年齢</p>
         </div>
-          <%= f.text_area :age, class:"input-default", placeholder:"例) 30歳", id:"age" %>
+          <%= f.collection_select(:age_id, Age.all, :id, :name, {}, {class:"input-age", id:"age"}) %>
       </div>
 
       <div class="form-group">
