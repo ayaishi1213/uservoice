@@ -2,7 +2,7 @@
   <div class="container">
     <div class="posts-show-item">
     <div class="post-user-name">
-    <%= link_to @post.user.nickname, user_path(@post.id) %>さんの投稿
+    <%= link_to @post.user.nickname %>さんの投稿
     </div>
       <div class="posts-img">
          <%= image_tag @post.image, class: "post-img" %>
